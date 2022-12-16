@@ -9,22 +9,22 @@ import Loader from "../Loader";
 import { useAuth } from "../../../context/AuthContext";
 // import { AccountContext } from "./accountContext";
 
-// const WRONG_CREDENTIALS = "auth/wrong-password";
-// const NOT_FOUND = "auth/user-not-found";
-// const LOGIN_BLOCKED = "auth/too-many-requests";
+const WRONG_CREDENTIALS = "auth/wrong-password";
+const NOT_FOUND = "auth/user-not-found";
+const LOGIN_BLOCKED = "auth/too-many-requests";
 
-// const printErrorMessage = (error) => {
-//   switch (error.code) {
-//     case WRONG_CREDENTIALS:
-//       return "Wrong credentials";
-//     case NOT_FOUND:
-//       return "User does not exist";
-//     case LOGIN_BLOCKED:
-//       return "User blocked. Restore password or try again later";
-//     default:
-//       return "Something went wrong. Try again";
-//   }
-// };
+const printErrorMessage = (error) => {
+  switch (error.code) {
+    case WRONG_CREDENTIALS:
+      return "Wrong credentials";
+    case NOT_FOUND:
+      return "User does not exist";
+    case LOGIN_BLOCKED:
+      return "User blocked. Restore password or try again later";
+    default:
+      return "Something went wrong. Try again";
+  }
+};
 
 // form validation rules
 const validationSchema = Yup.object().shape({
@@ -35,7 +35,7 @@ const validationSchema = Yup.object().shape({
 const Login = (props) => {
   // very important
   const { user, login } = useAuth();
-  console.log(user);
+  // console.log(user);
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const router = useRouter();
@@ -49,11 +49,33 @@ const Login = (props) => {
   });
 
   const onSubmit = async (data) => {
-    // console.log(data);
-    login(data.email, data.password);
-    toast("Success");
-
     setLoading(true);
+
+    try {
+      login(data.email, data.password)
+        .then((user) => {
+          setLoading(false);
+          // console.log(user);
+          router.push("/dashboard");
+        })
+        .catch((error) => {
+          // console.log(error);
+          // toast.error(error.code);
+          const errorMessage = error ? printErrorMessage(error) : null;
+          toast.error(errorMessage);
+          setLoading(false);
+        });
+    } catch (error) {
+      toast(error.message);
+    }
+
+    // toast.error("Hello");
+
+    // console.log(data);
+    // login(data.email, data.password);
+    // toast("Success");
+
+    // setLoading(true);
 
     {
       /* We would uncomment as we setup firebase*/
