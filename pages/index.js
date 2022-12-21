@@ -2,6 +2,7 @@ import Head from "next/head";
 import Login from "./components/user/login";
 // import Register from "./components/user/Register";
 import Nav from "./components/header/Nav";
+import Indexfl from "./components/body/Indexfl";
 
 export default function Home() {
   //Name List
@@ -12,31 +13,18 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">MyApp</h1>
-      <Head>
+      <a href="http://localhost:3000">
+        <img src="favicon2.jpg" alt="logo" width="100" height="100"></img>
+      </a>
+      <head>
         <title>Home Page</title>
         <meta name="description" content="" />
-        <link rel="icon" href="/favicon2.ico" />
-      </Head>
+        <link rel="icon" href="favicon3.ico" />
+      </head>
 
       <body>
         <Nav />
-        <main className="flex flex-col  justify-center p-auto">
-          {/* {nameList.map((item) => (
-          <div key={item.name}>
-            {item.name}
-            <div>{item.shelf}</div>
-          </div>
-        ))} */}
-
-          <div className="flex flex-col justify-center items-center mt-10">
-            {/* <Login /> */}
-            {/* <Register /> */}
-          </div>
-
-          {/*Studnet Data */}
-          {/* <StudentList /> */}
-        </main>
+        <Indexfl />
       </body>
     </>
   );

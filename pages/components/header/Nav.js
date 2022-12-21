@@ -9,28 +9,25 @@ const Nav = () => {
   return (
     <nav className="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-white shadow sm:items-baseline w-full">
       <div className="mb-2 sm:mb-0">
-        <a
-          href="/home"
-          className="text-2xl no-underline text-grey-darkest hover:text-blue-dark"
-        >
-          Home
-        </a>
+        <h1 className="text-2xl no-underline text-grey-darkest hover:text-blue-dark">
+          Ferns and Petals
+        </h1>
       </div>
       <div>
         <a
-          href="/one"
+          href="http://localhost:3000"
           className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
         >
-          One
+          Home
         </a>
         <a
-          href="/two"
+          href="/components/user/Register"
           className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
         >
-          Two
+          Register
         </a>
         <a
-          href="/login"
+          href="/components/user/login"
           classNameName="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2 p-5"
         >
           <span className="text-green-500 p-5">

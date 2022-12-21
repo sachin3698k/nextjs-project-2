@@ -7,6 +7,7 @@ import { useAuth } from "../../../context/AuthContext";
 // import { FaFacebook } from "react-icons/fa";
 // import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
+import Nav from "../header/Nav";
 import ReactDOM from "react-dom";
 // import { RadioGroup, Radio } from "react-radio-group";
 // import { RadioGroup, RadioButton } from 'react-radio-buttons';
@@ -60,9 +61,21 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center p-3 mt-5 ">
-      <div className="flex flex-col items-center">
-        {/* <button className="text-[#000000] font-semibold border-[#D2C1B9] bg-white py-3 px-5 rounded-md w-5/6 mt-2 border-[1px] p-1 flex items-center">
+    <>
+      <a href="http://localhost:3000">
+        <img src="favicon2.jpg" alt="logo" width="100" height="100"></img>
+      </a>
+      <head>
+        <title>Register</title>
+        <meta name="description" content="" />
+        <link rel="icon" href="favicon3.ico" />
+      </head>
+
+      <body>
+        <Nav />
+        <div className="flex items-center justify-center p-3 mt-5 ">
+          <div className="flex flex-col items-center">
+            {/* <button className="text-[#000000] font-semibold border-[#D2C1B9] bg-white py-3 px-5 rounded-md w-5/6 mt-2 border-[1px] p-1 flex items-center">
           <FcGoogle className="h-8 w-8 mb-1 mr-10" />
           Sign Up with Google
         </button>
@@ -75,113 +88,117 @@ const Register = () => {
           <FaFacebook className="h-8 w-8 mb-1 mr-10" />
           Sign Up with Facebook
         </button> */}
-
-        <hr className="bg-[#D2C1B9] border-0 h-px my-8" />
-      </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="firstName"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.firstName ? "text-[#EC6276]" : "text-[#3d4f7]"
-              }`}
-            >
-              First Name{" "}
-            </label>
-
-            <input
-              name="firstName"
-              id="firstName"
-              type="text"
-              placeholder="First Name"
-              {...register("firstName")}
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
-
-            <div className="mb-3 text-normal text-red-500 ">
-              <p>{errors.firstName?.message}</p>
-            </div>
+            <div></div>
+            <hr className="bg-[#D2C1B9] border-0 h-px my-8" />
           </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="lastName"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.lastName ? "text-[#EC6276]" : "text-[#3d4f7]"
-              }`}
-            >
-              Last Name{" "}
-            </label>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="firstName"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.firstName
+                      ? "text-[#EC6276]"
+                      : "text-[#3d4f7]"
+                  }`}
+                >
+                  First Name{" "}
+                </label>
 
-            <input
-              name="lastName"
-              id="lastName"
-              type="text"
-              placeholder="Last Name"
-              {...register("lastName")}
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
+                <input
+                  name="firstName"
+                  id="firstName"
+                  type="text"
+                  placeholder="First Name"
+                  {...register("firstName")}
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
 
-            <div className="mb-3 text-normal text-red-500 ">
-              <p>{errors.lastName?.message}</p>
+                <div className="mb-3 text-normal text-red-500 ">
+                  <p>{errors.firstName?.message}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="dateOfBirth"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.dateOfBirth
-                  ? "text-[#EC6276]"
-                  : "text-[#3d4f7]"
-              }`}
-            >
-              DateOfBirth{" "}
-            </label>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="lastName"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.lastName
+                      ? "text-[#EC6276]"
+                      : "text-[#3d4f7]"
+                  }`}
+                >
+                  Last Name{" "}
+                </label>
 
-            <input
-              name="dateOfBirth"
-              id="dateOfBirth"
-              type="Date"
-              placeholder="BateOfBirth"
-              {...register("dateOfBirth")}
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
+                <input
+                  name="lastName"
+                  id="lastName"
+                  type="text"
+                  placeholder="Last Name"
+                  {...register("lastName")}
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
 
-            <div className="mb-3 text-normal text-red-500 ">
-              <p>{errors.dateOfBirth?.message}</p>
+                <div className="mb-3 text-normal text-red-500 ">
+                  <p>{errors.lastName?.message}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="gender"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.gender ? "text-[#EC6276]" : "text-[#3d4f7]"
-              }`}
-            >
-              Gender{" "}
-            </label>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="dateOfBirth"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.dateOfBirth
+                      ? "text-[#EC6276]"
+                      : "text-[#3d4f7]"
+                  }`}
+                >
+                  DateOfBirth{" "}
+                </label>
 
-            <input
-              name="gender"
-              id="gender"
-              type="text"
-              placeholder="Gender"
-              {...register("gender")}
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
+                <input
+                  name="dateOfBirth"
+                  id="dateOfBirth"
+                  type="Date"
+                  placeholder="BateOfBirth"
+                  {...register("dateOfBirth")}
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
 
-            <div className="mb-3 text-normal text-red-500 ">
-              <p>{errors.gender?.message}</p>
+                <div className="mb-3 text-normal text-red-500 ">
+                  <p>{errors.dateOfBirth?.message}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        {/* <RadioGroup vertical>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="gender"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.gender ? "text-[#EC6276]" : "text-[#3d4f7]"
+                  }`}
+                >
+                  Gender{" "}
+                </label>
+
+                <input
+                  name="gender"
+                  id="gender"
+                  type="text"
+                  placeholder="Gender"
+                  {...register("gender")}
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
+
+                <div className="mb-3 text-normal text-red-500 ">
+                  <p>{errors.gender?.message}</p>
+                </div>
+              </div>
+            </div>
+            {/* <RadioGroup vertical>
           <Radio value="Male" />
           Male
           <Radio value="Female" />
@@ -191,148 +208,154 @@ const Register = () => {
         </RadioGroup>
         <Radio value="" />
         Prefer Not To Say */}
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="phoneNo"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.phoneNo ? "text-[#EC6276]" : "text-[#3d4f7]"
-              }`}
-            >
-              Phone No{" "}
-            </label>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="phoneNo"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.phoneNo
+                      ? "text-[#EC6276]"
+                      : "text-[#3d4f7]"
+                  }`}
+                >
+                  Phone No{" "}
+                </label>
 
-            <input
-              name="phoneNo"
-              id="phoneNo"
-              type="number"
-              placeholder="Phone No"
-              {...register("phoneNo")}
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
+                <input
+                  name="phoneNo"
+                  id="phoneNo"
+                  type="number"
+                  placeholder="Phone No"
+                  {...register("phoneNo")}
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
 
-            <div className="mb-3 text-normal text-red-500 ">
-              <p>{errors.phoneNo?.message}</p>
+                <div className="mb-3 text-normal text-red-500 ">
+                  <p>{errors.phoneNo?.message}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="email"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.address ? "text-[#EC6276]" : "text-[#3d4f7]"
-              }`}
-            >
-              Address{" "}
-            </label>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="email"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.address
+                      ? "text-[#EC6276]"
+                      : "text-[#3d4f7]"
+                  }`}
+                >
+                  Address{" "}
+                </label>
 
-            <input
-              name="address"
-              id="address"
-              type="text"
-              placeholder="Address"
-              {...register("address")}
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
+                <input
+                  name="address"
+                  id="address"
+                  type="text"
+                  placeholder="Address"
+                  {...register("address")}
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
 
-            <div className="mb-3 text-normal text-red-500 ">
-              <p>{errors.address?.message}</p>
+                <div className="mb-3 text-normal text-red-500 ">
+                  <p>{errors.address?.message}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="email"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.email ? "text-[#EC6276]" : "text-[#3d4f7]"
-              }`}
-            >
-              E-mail{" "}
-            </label>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="email"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.email ? "text-[#EC6276]" : "text-[#3d4f7]"
+                  }`}
+                >
+                  E-mail{" "}
+                </label>
 
-            <input
-              name="email"
-              id="email"
-              type="text"
-              placeholder="E-mail"
-              {...register("email")}
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
+                <input
+                  name="email"
+                  id="email"
+                  type="text"
+                  placeholder="E-mail"
+                  {...register("email")}
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
 
-            <div className="mb-3 text-normal text-red-500 ">
-              <p>{errors.email?.message}</p>
+                <div className="mb-3 text-normal text-red-500 ">
+                  <p>{errors.email?.message}</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="password"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.password ? "text-red-400" : "text-[#3d4f7]"
-              }`}
-            >
-              Password{" "}
-            </label>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="password"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.password ? "text-red-400" : "text-[#3d4f7]"
+                  }`}
+                >
+                  Password{" "}
+                </label>
 
-            <input
-              type="password"
-              name="password"
-              id="password"
-              // value={"test123456"}
-              {...register("password")}
-              placeholder="Password"
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
-            <div className="mb-3 text-normal text-red-500 ">
-              {errors.password?.message}
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  // value={"test123456"}
+                  {...register("password")}
+                  placeholder="Password"
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
+                <div className="mb-3 text-normal text-red-500 ">
+                  {errors.password?.message}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full">
-            <label
-              htmlFor="confirmPassword"
-              className={`w-full p-2 font-bold text-sm mb-2 ${
-                errors && errors.confirmPassword
-                  ? "text-red-400"
-                  : "text-[#3d4f7]"
-              }`}
-            >
-              Confirm Password{" "}
-            </label>
-            <input
-              type="password"
-              name="confirmPassword"
-              id="confirmPassword"
-              // value={"test123456"}
-              {...register("confirmPassword")}
-              placeholder="Confirm Password"
-              className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
-            />
-            <div className="mb-3 text-normal text-red-500 ">
-              {errors.confirmPassword?.message}
-            </div>
-          </div>
+            <div className="flex flex-wrap">
+              <div className="w-full">
+                <label
+                  htmlFor="confirmPassword"
+                  className={`w-full p-2 font-bold text-sm mb-2 ${
+                    errors && errors.confirmPassword
+                      ? "text-red-400"
+                      : "text-[#3d4f7]"
+                  }`}
+                >
+                  Confirm Password{" "}
+                </label>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  // value={"test123456"}
+                  {...register("confirmPassword")}
+                  placeholder="Confirm Password"
+                  className={`w-full text-base mb-3 border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2`}
+                />
+                <div className="mb-3 text-normal text-red-500 ">
+                  {errors.confirmPassword?.message}
+                </div>
+              </div>
 
-          <button
-            type="submit"
-            className="flex flex-col justify-center items-center w-full text-base mb-3 font-semibold text-white border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2 bg-sky-500"
-          >
-            Submit {loading ? <Loader /> : "SIGN UP"}
-          </button>
+              <button
+                type="submit"
+                className="flex flex-col justify-center items-center w-full text-base mb-3 font-semibold text-white border-[#D2C1B9] py-3 px-6 rounded-md mt-2 border-[1px] p-2 bg-sky-500"
+              >
+                {loading ? <Loader /> : "SIGN UP"}
+              </button>
+            </div>
+          </form>
+          {codeMessage && (
+            <div className="form-group">
+              <div className={successful ? "text-green-500" : "text-red-500"}>
+                {codeMessage}
+              </div>
+            </div>
+          )}
         </div>
-      </form>
-      {codeMessage && (
-        <div className="form-group">
-          <div className={successful ? "text-green-500" : "text-red-500"}>
-            {codeMessage}
-          </div>
-        </div>
-      )}
-    </div>
+      </body>
+    </>
   );
 };
 
